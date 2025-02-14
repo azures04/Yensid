@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./player.css">
+    <title>Yensid Video Player</title>
+</head>
+<body>
+    <main data-previous-episode-url="" data-next-episode-url="">
+        <aside class="controls" onclick="toggleVideoIfClickedOverControls(event)" ondblclick="toggleFullscreenIfDoubleClickedOverControls(event)" onmousemove="setHoverClassToVideoControls()">
+            <header class="top-overlay" data-media-view="">
+                <section class="overview">
+                    <h1>
+                        American Dad
+                    </h1>
+                    <h2>
+                        S16:E7 Zone Dangereuse
+                    </h2>
+                </section>
+                <section class="settings">
+                    <button data-control-type="settings" onclick="toggleSettings()">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </section>
+            </header>
+            <footer>
+                <div class="buttons">
+                    <div class="time-controls">
+                        <button data-control-type="previousEpisode" title="EPISODE PRECEDENT" onclick="previousEpisode()">
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button data-control-type="goBack" title="RECULER DE 10 S" onclick="goBack(10)">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                        <button data-control-type="toggleVideo" data-play-title="INTERROMPRE" data-pause-title="REPRENDRE" onclick="toggleVideo()" onmouseover="changeTitles(this)">
+                            <i data-mode="play" class="fas fa-play"></i>
+                            <i data-mode="pause" class="fas fa-pause invisible"></i>
+                        </button>
+                        <button data-control-type="goForward" title="AVANCER DE 10 S" onclick="goForward(10)">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        <button data-control-type="nextEpisode" title="EPISODE SUIVANT" onclick="nextEpisode()">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                    </div>
+                    <div class="ergonomics-buttons">
+                        <button data-control-type="volume" title="Volume">
+                            <div class="volume" onmouseover="toggleVolumeRegulator(true)" onmouseleave="toggleVolumeRegulator(false)">
+                                <div class="volume-level">
+                                    <div class="volume-thumb">
+                                        
+                                    </div>
+                                    <div class="volume-track">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <i data-mode="volume" class="fas fa-volume" onmouseover="toggleVolumeRegulator(true)" onclick="toggleVolume()"></i>
+                            <i data-mode="volumeMuted" class="fas fa-volume-mute invisible" onclick="toggleVolume()"></i>
+                        </button>
+                        <button data-control-type="toggleFullScreen" data-enter-title="PLEIN ECRAN" data-exit-title="SORTIR DU PLEIN ECRAN" onmouseover="toggleVolumeRegulator(true)" onmouseleave="toggleVolumeRegulator(false)" onclick="toggleFullScreen()" onmouseover="changeTitles(this)">
+                            <i data-mode="enter" class="fas fa-expand-wide"></i>
+                            <i data-mode="exit" class="fas fa-compress-wide invisible"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="playing">
+                    <div class="progress">
+                        <div class="track">
+    
+                        </div>
+                        <div class="thumb">
+    
+                        </div>
+                    </div>
+                    <span class="timecode">
+                        00:00
+                    </span>
+                </div>
+            </footer>
+        </aside>
+        <article class="settings invisible">
+            <button onclick="toggleSettings()">
+                <i class="fal fa-times"></i>
+            </button>
+            <div class="selectors">
+                <div class="selector video">
+                    <label>
+                        Vidéo
+                    </label>
+                    <br>
+                    <div class="list">
+                        <div class="item" onclick="changeVideoSource(this.value)">
+                            Défaut
+                        </div>
+                    </div>
+                </div>
+                <div class="selector subtitles">
+                    <label>
+                        Sous-titres
+                    </label>
+                    <br>
+                    <div class="list">
+                        <div class="item" onclick="changeSubtitlesSource(this.value)">
+                            Aucun
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <video playsinline autoplay="true" src="https://media.istockphoto.com/id/2021294120/fr/vid%C3%A9o/des-cartes-de-cr%C3%A9dit-d%C3%A9chiquet%C3%A9es-et-de-largent-sur-des-comptes-bancaires-pile-de-cartes-de.mp4?s=mp4-640x640-is&k=20&c=Nzlhqo1uop0diFEhPJ_8AMyE4lpWCOKNB4bQoGdRjdA="></video>
+    </main>
+
+    <script src="./player.js"></script>
+
+</body>
+</html>

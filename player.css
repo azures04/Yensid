@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+main {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+    font-family: "Noto Sans", serif;
+}
+
+video {
+    pointer-events: none;
+}
+
+main > video {
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+main > aside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0;
+}
+
+main > aside {
+    background: #000000;
+    background: -moz-linear-gradient(0deg, #00000077 0%, #00000000 20%, #00000000 80%, #00000081 100%);
+    background: -webkit-linear-gradient(0deg, #00000077 0%, #00000000 20%, #00000000 80%, #00000081 100%);
+    background: linear-gradient(0deg, #00000077 0%, #00000000 20%, #00000000 80%, #00000081 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+}
+
+main > aside.hide-mouse {
+    cursor: none;
+}
+
+main > aside > header {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fefefe;
+}
+
+main > aside > footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+
+main > aside > footer > div.playing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #fefefe;
+    align-items: center;
+    transition: .3s;
+}
+
+main > aside > footer > div.playing > div.progress {
+    height: 4px;
+    width: calc(100% - 60px);
+    transition: .3s;
+    background-color: #ffffff6b;
+    border-radius: 20px;
+}
+
+main > aside > footer > div.playing > div.progress:hover {
+    height: 10px;
+}
+
+main > aside > footer > div.playing > div.progress > div.track {
+    width: 0%;
+    height: 100%;
+    background-color: #3eabff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+main > aside > footer > div.playing > div.progress:hover > div.thumb {
+    width: 16px;
+    height: 16px;
+    margin-top: calc(-1px - (16px - 4px));
+}
+
+main > aside > footer > div.playing > div.progress > div.thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-top: calc(-1px - (10px - 4px));
+}
+
+main > aside > footer > div.playing > span.timecode {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+main > aside > footer > div.buttons {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+main > aside > footer > div.buttons > div {
+    display: inline-block;
+}
+
+main > aside > footer > div.buttons > div.time-controls {
+    text-align: center;
+    width: calc(100% - 130px);
+    margin-left: 40px;
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons {
+    float: right;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    color: #edededcb;
+    border: none;
+    opacity: 75%;
+    outline: none;
+    font-size: 26px;
+    transition: .3s;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-weight: normal;
+    background-color: transparent;
+}
+
+main > aside > header > section.settings > button {
+    font-size: 24px;
+}
+
+button:hover {
+    opacity: 100%;
+}
+
+main > aside > header {
+    color: #edededcb;
+    transition: .3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+main > aside > header > section {
+    display: inline-block;
+}
+
+main > aside > header > section.overview {
+    cursor: pointer;
+    transition: .3s;
+    width: max-content;
+    opacity: 50%;
+}
+
+main > aside > header > section.overview:hover {
+    opacity: 100%;
+}
+
+main > aside > header > section.overview > h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+main > aside > header > section.overview > h2 {
+    margin-top: 2px;
+    font-size: small;
+    font-weight: 300;
+}
+
+main > aside > header > section.settings {
+    float: right;
+    width: max-content;
+    vertical-align: middle;
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons > button[data-control-type="volume"] {
+    position: relative;
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons > button[data-control-type="volume"] > div.volume {
+    position: absolute;
+    /* width: 10px; */
+    height: 100px;
+    left: 0px;
+    right: 0px;
+    bottom: calc(26px + 10px);
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons > button[data-control-type="volume"] > div.volume > div.volume-level {
+    position: relative;
+    height: calc(100% - 10px);
+    width: 4px;
+    margin: auto;
+    margin-top: calc(10px / 2);
+    border-radius: 10px;
+    /* transform: rotate(180deg); */
+    background-color: #ffffff;
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons > button[data-control-type="volume"] > div.volume > div.volume-level > div.volume-track {
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    border-radius: 10px;
+    background-color: #ededed;
+    z-index: 0;
+}
+
+main > aside > footer > div.buttons > div.ergonomics-buttons > button[data-control-type="volume"] > div.volume > div.volume-level > div.volume-thumb {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    transform: scale(2.5);
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+main > article.settings {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    background-color: #000000cd;
+}
+
+main > article.settings > div.selectors {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+main > article.settings > div.selectors > div.selector {
+    border: none;
+    outline: none;
+    margin: 20px 20px 20px 20px;
+    padding: 8px 8px 8px 8px;
+    min-width: calc(100% / 3 - 80px);
+    height: 88%;
+    color: #fefefe;
+    font-weight: bolder;
+}
+
+main > article.settings > div.selectors > div.selector > div.list {
+    font-weight: normal;
+    font-size: medium;
+    margin-top: 10px;
+}
+
+main > article.settings > div.selectors > div.selector > div.list > div.item {
+    color: #ffffffbd;
+    cursor: pointer;
+    transition: .3s;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-bottom: 3px;
+    padding-bottom: 3px;
+    border-top: 1px solid #ffffff6b;
+    border-bottom: 1px solid #ffffff6b;
+}
+
+main > article.settings > div.selectors > div.selector > div.list > div.item.selected {
+    color: #ffffffe1;
+    background-color: #ffffff06;
+}
+
+main > article.settings > div.selectors > div.selector > div.list > div.item:hover {
+    background-color: #ffffff1b;
+    color: #fffffff1;
+}
+
+.invisible {
+    display: none;
+}
